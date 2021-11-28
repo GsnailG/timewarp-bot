@@ -3,9 +3,12 @@ require("dotenv").config();
 console.log ("env import loaded")
     // sorta like import for python
 
+
 const { Client, Intents } = require("discord.js");
-console.log ("discord.js loaded")
-    // allows env files to be read
+console.log ("discord.js loaded (the intents bit?")
+    // something to do with the intents 
+
+
 
 const apiKey = process.env.discordkey;
 console.log ("grabed token from env File")
@@ -23,25 +26,17 @@ client.on("ready", () => {
     console.log("status is set")
         // sets the bots status 
     
-        
     /* the bot has finaly loaded, inform the owner that it has done so */
     
     const tw_botlog = client.channels.cache.get('914360638975905822'); 
         // this is the id of my bot log channel, in the Timewarp Discord Server
     tw_botlog.send("i have booted up")
-        // sends a message to a channel on discord
+        // sends a message to a channel on discord to the id represented by tw_botlog
 
     console.log(`Logged in as ${client.user.tag}!`);
         //client.user.tag is the name of the bot    
 
 });
-
-
-
-
-
-
-
 
 
 
