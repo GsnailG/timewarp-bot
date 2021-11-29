@@ -5,7 +5,7 @@ console.log ("env import loaded")
 
 
 const { Client, Intents } = require("discord.js");
-console.log ("discord.js loaded (the intents bit?")
+console.log ("discord.js loaded (the intents bit?)")
     // something to do with the intents 
 
 
@@ -33,28 +33,25 @@ add a item to the list, starting with Intents.Flags.(WHATEVER)
  * PINGS AND PONGS *
  *******************/
 client.on("messageCreate", msg =>{
-    
+
+    /* should this message be recognized? */
     if (msg.author.bot) return
         //ignores itself
-
-    else if (msg.content === "ping") {
+        
+    if (msg.content === "ping") {
         console.log("someone pinged, ima pong")
         msg.reply("pong");
     }
 
     else if (msg.content === "pong") {
         console.log("someone ponged, ima ping")
-        msg.reply("pong");
+        msg.reply("ping");
     }
-
 })
 
 
-
-
-
 /************
- * READY UP *
+ * READYING UP *
  ************/
 client.on("ready", () => {
 
