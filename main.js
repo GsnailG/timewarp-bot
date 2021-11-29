@@ -9,17 +9,53 @@ console.log ("discord.js loaded (the intents bit?")
     // something to do with the intents 
 
 
-
 const apiKey = process.env.discordkey;
 console.log ("grabed token from env File")
     // grabs my discord key from my env file
 
-const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
-    // these are the permisions the bot uses, i still havent figured this out yet
+
+const client = new Client({ 
+    intents: [
+        Intents.FLAGS.GUILDS, //can send messages
+        Intents.FLAGS.GUILD_MESSAGES //can see when messages are sent
+    ]
+});
+
+/*how do intents work
+assuiming you have the discord.js stuff installed, simply
+add a item to the list, starting with Intents.Flags.(WHATEVER)
+*/
 
 
 
 
+/*******************
+ * PINGS AND PONGS *
+ *******************/
+client.on("messageCreate", msg =>{
+    
+    if (msg.author.bot) return
+        //ignores itself
+
+    else if (msg.content === "ping") {
+        console.log("someone pinged, ima pong")
+        msg.reply("pong");
+    }
+
+    else if (msg.content === "pong") {
+        console.log("someone ponged, ima ping")
+        msg.reply("pong");
+    }
+
+})
+
+
+
+
+
+/************
+ * READY UP *
+ ************/
 client.on("ready", () => {
 
     client.user.setActivity("the Timewarp Again", { type: 'WATCHING' }); 
@@ -37,10 +73,6 @@ client.on("ready", () => {
         //client.user.tag is the name of the bot    
 
 });
-
-
-
-
 
 //logs the bot online
 client.login(process.env.DISCORD_TOKEN); 
