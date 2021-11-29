@@ -4,7 +4,7 @@ console.log ("env import loaded")
     // sorta like import for python
 
 
-const { Client, Intents } = require("discord.js");
+const { Client, Intents, Message } = require("discord.js");
 console.log ("discord.js loaded (the intents bit?)")
     // something to do with the intents 
 
@@ -48,6 +48,28 @@ client.on("messageCreate", msg =>{
         msg.reply("ping");
     }
 })
+
+/****************
+ * EMBED REACTS *
+ ****************/
+ const tw_botlog = client.channels.cache.get('914360638975905822'); 
+ // this is the id of my bot log channel, in the Timewarp Discord Server
+
+client.on("messageCreate", msg =>{
+    if (msg.attachments.size > 0){ // is the file larger than 0mb, if so, its a file.
+        console.log("img sent, adding reactions")
+        msg.react("🔼") //reacts to message
+        msg.react("🔽")
+    }
+})
+
+
+/****************************
+ *   SWEAR WORDS (planes)    *
+ * MESSAGE.CONTENT.INCLUDES *
+ ****************************/
+
+
 
 
 /************
